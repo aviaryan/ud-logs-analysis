@@ -2,10 +2,10 @@ import psycopg2
 
 ques_1 = 'What are the most popular three articles of all time?'
 query_1 = """
-select title, t.views from articles inner join
-(select path, count(*) as views from log where path like '/article%'
-group by path order by views desc limit 3)
-as t on concat('/article/', slug) = t.path order by t.views desc;
+select title, count(*) as views from articles inner join
+log on concat('/article/', articles.slug) = log.path
+where log.status like '%200%'
+group by log.path, articles.title order by views desc limit 3;
 """
 
 ques_2 = 'Who are the most popular article authors of all time?'
