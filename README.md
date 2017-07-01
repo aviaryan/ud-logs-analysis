@@ -13,6 +13,9 @@ The database in question is a newspaper company database where we have 3 tables;
 * `authors` - Contains list of authors who have published their articles.
 * `log` - Stores log of every request sent to the newspaper server.
 
+This project implements a single query solution for each of the question in hand.
+See [main.py](main.py) for more details.
+
 
 ## Running
 
